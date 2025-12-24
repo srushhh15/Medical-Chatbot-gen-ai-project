@@ -7,34 +7,31 @@
 </head>
 <body>
 
-<div class="container">
+<div class="chat-container">
     <h1>🩺 Medical Chatbot</h1>
     <p class="subtitle">Ask medical questions based on trusted documents</p>
 
-    <!-- Chat history -->
     <div class="chat-box">
         {% for chat in chat_history %}
-            <div class="chat user">
+            <div class="user-msg">
                 <strong>You:</strong> {{ chat.question }}
             </div>
-            <div class="chat bot">
+            <div class="bot-msg">
                 <strong>Bot:</strong> {{ chat.answer }}
             </div>
         {% endfor %}
     </div>
 
-    <!-- Question form -->
     <form method="POST" class="input-form">
         <input type="text" name="question" placeholder="Ask a medical question..." required>
         <button type="submit">Ask</button>
     </form>
 
-    <!-- Reset button -->
-    <form action="/reset" method="post" class="reset-form">
+    <form method="POST" action="/reset">
         <button class="reset-btn">Reset Chat</button>
     </form>
 
-    <p class="disclaimer">⚠️ This chatbot is for educational purposes only. Not medical advice.</p>
+    <p class="warning">⚠️ Educational use only. Not medical advice.</p>
 </div>
 
 </body>
